@@ -263,6 +263,10 @@ body.menu-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45de
 }
 .review-name{font-weight:600;font-size:.93rem;line-height:1.3}
 .review-role{font-size:.8rem;color:#8a837d}
+.stars{display:flex;gap:3px;color:var(--bronze);margin-bottom:2px}
+.review-source{margin-top:14px;font-size:.78rem;color:#8a837d;letter-spacing:.02em}
+.review-source a{border-bottom:1px solid var(--line);padding-bottom:1px}
+.review-source a:hover{color:var(--bronze-dark)}
 
 /* ============================================================
    ФИНАЛЬНЫЙ ПРИЗЫВ
@@ -535,30 +539,32 @@ body.menu-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45de
       <h2 class="reveal d1">Что говорят наши клиенты</h2>
     </div>
     <div class="cards">
-      <!-- ШАБЛОН КАРТОЧКИ ОТЗЫВА — замените содержимое на реальный отзыв -->
       <article class="card review reveal">
-        <hr class="rule">
-        <p class="review-text">Здесь будет отзыв вашего клиента — о том, как команда навела порядок в учёте и сняла тревогу перед отчётностью.</p>
+        <div class="stars" aria-label="Оценка 5 из 5"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.6 6.1 20.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.6 6.1 20.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.6 6.1 20.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.6 6.1 20.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.6 6.1 20.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"/></svg></div>
+        <p class="review-text">Более 20 лет работаю с этой компанией. За всё это время у меня ни одной претензии. Работа выполняется чётко, вовремя и профессионально. Очень рада, что когда-то доверила вести свою бухгалтерию. Могу с чистым сердцем посоветовать эту фирму всем, кто нуждается в помощи по бухгалтерии. Спасибо девочкам и Анне Викторовне за доброе отношение, терпение и профессиональные советы.</p>
         <div class="review-author">
-          <span class="review-avatar">А</span>
-          <span><span class="review-name">Имя клиента</span><br><span class="review-role">Компания или сфера деятельности</span></span>
+          <span class="review-avatar">Е</span>
+          <span><span class="review-name">Елена Масликова</span><br><span class="review-role">Клиент компании более 20 лет</span></span>
         </div>
+        <p class="review-source">Отзыв с <a href="https://2gis.kz/ustkam/geo/70000001021872400" target="_blank" rel="noopener">2ГИС</a>, июль 2026</p>
       </article>
       <article class="card review reveal d1">
-        <hr class="rule">
-        <p class="review-text">Здесь будет отзыв вашего клиента — о понятном общении и спокойствии, которое даёт постоянное сопровождение.</p>
+        <div class="stars" aria-label="Оценка 5 из 5"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.6 6.1 20.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.6 6.1 20.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.6 6.1 20.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.6 6.1 20.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.6 6.1 20.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"/></svg></div>
+        <p class="review-text">Услугами компании Консалтинг пользуюсь много лет. Ценю их за ответственное и внимательное отношение к работе и потребностям клиентов. За помощь и внимание в сложные моменты, профессионализм и компетентность в самых разных вопросах, гибкость и оперативность в решении вопросов и неотложных задач. Спасибо большое всему слаженному и профессиональному коллективу.</p>
         <div class="review-author">
-          <span class="review-avatar">Б</span>
-          <span><span class="review-name">Имя клиента</span><br><span class="review-role">Компания или сфера деятельности</span></span>
+          <span class="review-avatar">А</span>
+          <span><span class="review-name">Алексей Щемелинин</span><br><span class="review-role">Постоянный клиент</span></span>
         </div>
+        <p class="review-source">Отзыв с <a href="https://2gis.kz/ustkam/geo/70000001021872400" target="_blank" rel="noopener">2ГИС</a>, июль 2026</p>
       </article>
       <article class="card review reveal d2">
-        <hr class="rule">
-        <p class="review-text">Здесь будет отзыв вашего клиента — о восстановлении учёта, открытии ТОО или помощи с налоговым режимом.</p>
+        <div class="stars" aria-label="Оценка 5 из 5"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.6 6.1 20.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.6 6.1 20.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.6 6.1 20.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.6 6.1 20.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.6 6.1 20.7l1.2-6.6L2.5 9.5l6.6-.9L12 2.5Z"/></svg></div>
+        <p class="review-text">Более 2 лет пользуюсь услугами данной компании по ведению налоговых вопросов для ИП. Пришёл по рекомендации знакомого и ни разу не пожалел о выборе. Всегда можно получить грамотную консультацию, быстро решить возникающие вопросы и быть уверенным, что важные изменения не останутся без внимания. Отдельно отмечу помощь при переходе на новый налоговый режим и смене банка — всё было сделано чётко и без лишних хлопот.</p>
         <div class="review-author">
-          <span class="review-avatar">В</span>
-          <span><span class="review-name">Имя клиента</span><br><span class="review-role">Компания или сфера деятельности</span></span>
+          <span class="review-avatar">А</span>
+          <span><span class="review-name">Александр Ильин</span><br><span class="review-role">Индивидуальный предприниматель</span></span>
         </div>
+        <p class="review-source">Отзыв с <a href="https://2gis.kz/ustkam/geo/70000001021872400" target="_blank" rel="noopener">2ГИС</a>, июль 2026</p>
       </article>
     </div>
   </div>

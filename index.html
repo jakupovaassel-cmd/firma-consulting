@@ -1,752 +1,671 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Фирма Консалтинг — Бухгалтерия и консалтинг в Казахстане</title>
-  <meta name="description" content="Фирма Консалтинг — бухгалтерское, налоговое и кадровое сопровождение бизнеса с 2002 года. Наводим порядок в бизнесе." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    :root {
-      --bronze:    #A86E3D;
-      --bronze-dk: #7A4D2B;
-      --milk:      #F8F5F1;
-      --beige:     #EEE5DB;
-      --graphite:  #2E2C2B;
-      --white:     #FFFFFF;
-      --text:      #3a3736;
-      --muted:     #7a7572;
-      --radius:    6px;
-    }
+<!-- ===== SEO ===== -->
+<title>Фирма Консалтинг — бухгалтерское и налоговое сопровождение бизнеса в Казахстане</title>
+<meta name="description" content="Наводим порядок в бизнесе с 2002 года. Бухгалтерское, налоговое и кадровое сопровождение для ИП, ТОО и компаний Казахстана. Команда специалистов, понятное общение, человеческое отношение.">
 
-    html { scroll-behavior: smooth; }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    body {
-      font-family: 'Manrope', sans-serif;
-      background: var(--milk);
-      color: var(--text);
-      overflow-x: hidden;
-    }
+<style>
+/* ============================================================
+   ФИРМА КОНСАЛТИНГ — стилевая система
+   Палитра: бронза #A86E3D · тёмная бронза #7A4D2B ·
+   молочный #F8F5F1 · бежевый #EEE5DB · графит #2E2C2B
+   ============================================================ */
+:root{
+  --bronze:#A86E3D;
+  --bronze-dark:#7A4D2B;
+  --milk:#F8F5F1;
+  --beige:#EEE5DB;
+  --graphite:#2E2C2B;
+  --white:#FFFFFF;
+  --line:rgba(168,110,61,.35);      /* тонкая бронзовая линия */
+  --line-soft:rgba(168,110,61,.18);
+  --radius:22px;
+  --font-display:'Cormorant Garamond', Georgia, serif;
+  --font-body:'Manrope', system-ui, -apple-system, sans-serif;
+  --container:1180px;
+}
 
-    /* ── UTILS ── */
-    .container { max-width: 1120px; margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 2.5rem); }
-    .section-label {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--bronze); margin-bottom: 1rem;
-    }
-    .section-label::before {
-      content: ''; display: block; width: 28px; height: 1px; background: var(--bronze);
-    }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 700; line-height: 1.15; color: var(--graphite);
-      margin-bottom: 1rem;
-    }
-    .section-text {
-      font-size: clamp(0.9rem, 1.8vw, 1rem);
-      font-weight: 300; line-height: 1.8; color: var(--muted);
-      max-width: 580px;
-    }
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  color:var(--graphite);
+  background:var(--milk);
+  line-height:1.65;
+  font-size:16.5px;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
 
-    .btn {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      font-family: 'Manrope', sans-serif; font-weight: 600;
-      font-size: clamp(0.82rem, 1.5vw, 0.9rem);
-      text-decoration: none; border: none; cursor: pointer;
-      border-radius: var(--radius); transition: background 0.22s, transform 0.18s, opacity 0.22s;
-      letter-spacing: 0.02em;
-    }
-    .btn--bronze {
-      background: var(--bronze); color: var(--white);
-      padding: clamp(0.75rem,1.8vw,0.9rem) clamp(1.5rem,3vw,2rem);
-    }
-    .btn--bronze:hover { background: var(--bronze-dk); transform: translateY(-2px); }
-    .btn--outline {
-      background: transparent; color: var(--bronze);
-      border: 1.5px solid var(--bronze);
-      padding: clamp(0.72rem,1.8vw,0.88rem) clamp(1.5rem,3vw,2rem);
-    }
-    .btn--outline:hover { background: rgba(168,110,61,0.07); transform: translateY(-2px); }
-    .btn--white {
-      background: var(--white); color: var(--graphite);
-      padding: clamp(0.75rem,1.8vw,0.9rem) clamp(1.5rem,3vw,2rem);
-    }
-    .btn--white:hover { opacity: 0.9; transform: translateY(-2px); }
+.container{max-width:var(--container);margin:0 auto;padding:0 24px}
 
-    /* ── HEADER ── */
-    .header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      background: rgba(248,245,241,0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.3s, box-shadow 0.3s;
-      height: 68px; display: flex; align-items: center;
-    }
-    .header.scrolled {
-      border-color: var(--beige);
-      box-shadow: 0 2px 20px rgba(46,44,43,0.08);
-    }
-    .header__inner {
-      display: flex; align-items: center; justify-content: space-between; width: 100%;
-    }
-    .logo { text-decoration: none; display: flex; flex-direction: column; gap: 1px; }
-    .logo__main {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem; font-weight: 700; color: var(--graphite); line-height: 1;
-    }
-    .logo__main span { color: var(--bronze); }
-    .logo__sub { font-size: 0.62rem; font-weight: 500; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
+/* ---------- типографика ---------- */
+h1,h2,.display{
+  font-family:var(--font-display);
+  font-weight:500;
+  line-height:1.12;
+  letter-spacing:.01em;
+}
+h1{font-size:clamp(2.5rem,5.4vw,4.3rem)}
+h2{font-size:clamp(2rem,3.8vw,3rem)}
+h3{font-family:var(--font-body);font-weight:600;font-size:1.12rem;line-height:1.4}
 
-    .nav { display: flex; align-items: center; gap: 2rem; }
-    .nav a {
-      font-size: 0.82rem; font-weight: 500; color: var(--text);
-      text-decoration: none; transition: color 0.2s;
-    }
-    .nav a:hover { color: var(--bronze); }
+.eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--bronze-dark);margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--bronze)}
 
-    .burger {
-      display: none; flex-direction: column; gap: 5px; cursor: pointer;
-      background: none; border: none; padding: 4px;
-    }
-    .burger span { display: block; width: 22px; height: 2px; background: var(--graphite); border-radius: 2px; transition: all 0.3s; }
+.lead{font-size:1.1rem;color:#54504d;max-width:640px}
 
-    .mobile-nav {
-      display: none; position: fixed; top: 68px; left: 0; right: 0;
-      background: var(--milk); border-bottom: 1px solid var(--beige);
-      padding: 1.5rem; flex-direction: column; gap: 1.25rem; z-index: 199;
-    }
-    .mobile-nav.open { display: flex; }
-    .mobile-nav a { font-size: 1rem; font-weight: 500; color: var(--text); text-decoration: none; }
+/* ---------- бронзовые линии — сквозной мотив ---------- */
+.rule{height:1px;background:linear-gradient(90deg,var(--line),var(--line-soft) 70%,transparent);border:0}
 
-    /* ── HERO ── */
-    .hero {
-      padding-top: 68px;
-      min-height: 100svh;
-      display: flex; align-items: center;
-      background: var(--milk);
-    }
-    .hero__inner {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: clamp(2rem,5vw,4rem); align-items: center;
-      padding: clamp(3rem,7vw,5rem) 0;
-    }
-    .hero__eyebrow {
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--bronze); margin-bottom: 1.25rem;
-      display: flex; align-items: center; gap: 0.6rem;
-    }
-    .hero__eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--bronze); }
-    .hero__title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.5rem,6vw,4.2rem);
-      font-weight: 700; line-height: 1.1;
-      color: var(--graphite); margin-bottom: 1.25rem;
-    }
-    .hero__text {
-      font-size: clamp(0.92rem,1.8vw,1.05rem);
-      font-weight: 300; line-height: 1.8;
-      color: var(--muted); margin-bottom: 2rem; max-width: 480px;
-    }
-    .hero__btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
-    .hero__facts {
-      display: flex; gap: 2rem; flex-wrap: wrap;
-      padding-top: 2rem; border-top: 1px solid var(--beige);
-    }
-    .hero__fact-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem; font-weight: 700; color: var(--bronze); line-height: 1;
-    }
-    .hero__fact-lbl { font-size: 0.73rem; font-weight: 500; color: var(--muted); margin-top: 0.2rem; }
+/* ---------- кнопки ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:15px 28px;border-radius:999px;
+  font-family:var(--font-body);font-weight:600;font-size:.98rem;
+  cursor:pointer;border:1px solid transparent;
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+  white-space:nowrap;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible{outline:2px solid var(--bronze-dark);outline-offset:3px}
+.btn-primary{
+  background:var(--bronze);color:var(--white);
+  box-shadow:0 10px 26px -12px rgba(122,77,43,.55);
+}
+.btn-primary:hover{background:var(--bronze-dark)}
+.btn-ghost{border-color:var(--line);color:var(--bronze-dark);background:transparent}
+.btn-ghost:hover{background:rgba(168,110,61,.07)}
+.btn svg{flex:none}
 
-    .hero__photo-wrap {
-      position: relative; display: flex; justify-content: flex-end;
-    }
-    .hero__photo {
-      width: 100%; max-width: 480px;
-      aspect-ratio: 3/4; object-fit: cover; border-radius: 4px;
-      position: relative; z-index: 1;
-    }
-    .hero__photo-frame {
-      position: absolute; inset: -12px -12px 12px 12px;
-      border: 1.5px solid var(--bronze); border-radius: 4px; z-index: 0;
-    }
-    /* placeholder when no photo */
-    .photo-placeholder {
-      width: 100%; max-width: 480px; aspect-ratio: 3/4;
-      background: var(--beige); border-radius: 4px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.8rem; color: var(--muted); position: relative; z-index: 1;
-      /* ЗАМЕНИТЕ НА ТЕГ <img> с реальным фото */
-    }
+/* ---------- анимация появления ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.reveal.is-visible{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .btn:hover{transform:none}
+}
 
-    /* ── QUOTE ── */
-    .quote { background: var(--white); padding: clamp(3.5rem,8vw,6rem) clamp(1.25rem,5vw,2.5rem); text-align: center; }
-    .quote__text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.6rem,4vw,2.6rem);
-      font-weight: 600; line-height: 1.35;
-      color: var(--graphite); max-width: 760px; margin: 0 auto;
-    }
-    .quote__text em { color: var(--bronze); font-style: normal; }
+/* ============================================================
+   ШАПКА
+   ============================================================ */
+.header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  transition:background .3s ease, box-shadow .3s ease;
+  padding:16px 0;
+}
+.header.is-scrolled{
+  background:rgba(248,245,241,.92);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  box-shadow:0 1px 0 var(--line-soft);
+  padding:10px 0;
+}
+.header-inner{display:flex;align-items:center;gap:32px}
+.logo{display:flex;align-items:center;gap:14px}
+.logo-name{
+  font-family:var(--font-display);font-weight:600;
+  font-size:1.32rem;line-height:1.15;letter-spacing:.01em;
+}
+.logo-tag{font-size:.72rem;color:var(--bronze-dark);letter-spacing:.04em}
+.nav{display:flex;gap:26px;margin-left:auto}
+.nav a{font-size:.92rem;font-weight:500;position:relative;padding:4px 0}
+.nav a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:0;
+  background:var(--bronze);transition:width .3s ease;
+}
+.nav a:hover::after{width:100%}
+.header .btn{padding:11px 22px;font-size:.9rem}
 
-    /* ── SERVICES ── */
-    .services { background: var(--beige); padding: clamp(4rem,9vw,7rem) clamp(1.25rem,5vw,2.5rem); }
-    .services__grid {
-      display: grid; grid-template-columns: repeat(3,1fr);
-      gap: 1.25rem; margin-top: 2.5rem;
-    }
-    .service-card {
-      background: var(--white); border-radius: var(--radius);
-      padding: 2rem 1.75rem; transition: transform 0.2s, box-shadow 0.2s;
-      border-top: 2px solid var(--bronze);
-    }
-    .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(46,44,43,0.1); }
-    .service-card__icon { font-size: 1.5rem; margin-bottom: 1rem; }
-    .service-card__title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem; font-weight: 700; color: var(--graphite);
-      margin-bottom: 0.6rem; line-height: 1.2;
-    }
-    .service-card__text { font-size: 0.83rem; font-weight: 300; line-height: 1.7; color: var(--muted); }
+/* бургер */
+.burger{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
+.burger span{display:block;width:24px;height:2px;background:var(--graphite);margin:5px 0;transition:.3s}
+.mobile-menu{
+  display:none;position:fixed;inset:0;z-index:99;background:var(--milk);
+  padding:110px 28px 40px;flex-direction:column;gap:8px;
+}
+.mobile-menu.is-open{display:flex}
+.mobile-menu a{font-family:var(--font-display);font-size:1.7rem;padding:12px 0;border-bottom:1px solid var(--line-soft)}
+.mobile-menu .btn{margin-top:28px}
+body.menu-open{overflow:hidden}
+body.menu-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+body.menu-open .burger span:nth-child(2){opacity:0}
+body.menu-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-    /* ── ABOUT ── */
-    .about { background: var(--milk); padding: clamp(4rem,9vw,7rem) clamp(1.25rem,5vw,2.5rem); }
-    .about__inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem,5vw,4rem); align-items: center; }
-    .about__perks { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
-    .perk {
-      padding: 1.25rem; background: var(--beige); border-radius: var(--radius);
-      border-left: 3px solid var(--bronze);
-    }
-    .perk__title { font-size: 0.88rem; font-weight: 700; color: var(--graphite); margin-bottom: 0.3rem; }
-    .perk__text  { font-size: 0.78rem; font-weight: 300; line-height: 1.6; color: var(--muted); }
+/* ============================================================
+   ПЕРВЫЙ ЭКРАН
+   ============================================================ */
+.hero{padding:160px 0 90px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+.hero h1{margin:14px 0 26px}
+.hero h1 em{font-style:italic;color:var(--bronze-dark)}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin:34px 0 30px}
+.hero-facts{display:flex;flex-wrap:wrap;gap:0;color:#5a5551;font-size:.9rem}
+.hero-facts li{display:flex;align-items:center}
+.hero-facts li + li::before{content:"";width:1px;height:14px;background:var(--line);margin:0 16px}
 
-    .about__photo-wrap { position: relative; }
-    .about__photo, .about__photo-placeholder {
-      width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 4px;
-      position: relative; z-index: 1;
-    }
-    .about__photo-placeholder {
-      background: var(--beige); display: flex; align-items: center;
-      justify-content: center; font-size: 0.8rem; color: var(--muted);
-    }
-    .about__photo-frame {
-      position: absolute; inset: 14px -14px -14px 14px;
-      border: 1.5px solid var(--bronze); border-radius: 4px; z-index: 0;
-    }
+.hero-photo{position:relative}
+.hero-photo img{
+  border-radius:var(--radius);
+  aspect-ratio:4/5;object-fit:cover;width:100%;
+  box-shadow:0 30px 60px -30px rgba(46,44,43,.35);
+}
+/* тонкая бронзовая рамка со смещением — фирменная деталь */
+.frame::before{
+  content:"";position:absolute;inset:0;
+  border:1px solid var(--line);border-radius:var(--radius);
+  transform:translate(16px,16px);z-index:-1;
+}
 
-    /* ── TRUST ── */
-    .trust { background: var(--graphite); padding: clamp(4rem,9vw,7rem) clamp(1.25rem,5vw,2.5rem); }
-    .trust .section-label { color: var(--bronze); }
-    .trust .section-label::before { background: var(--bronze); }
-    .trust .section-title { color: var(--white); }
-    .trust__grid {
-      display: grid; grid-template-columns: repeat(3,1fr);
-      gap: 1.25rem; margin-top: 2.5rem;
-    }
-    .trust-card {
-      border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius);
-      padding: 1.75rem 1.5rem; transition: border-color 0.2s;
-    }
-    .trust-card:hover { border-color: var(--bronze); }
-    .trust-card__num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem; font-weight: 700; color: var(--bronze); line-height: 1; margin-bottom: 0.75rem;
-    }
-    .trust-card__title { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
-    .trust-card__text  { font-size: 0.8rem; font-weight: 300; line-height: 1.7; color: rgba(255,255,255,0.55); }
+/* ============================================================
+   ЭМОЦИОНАЛЬНАЯ ЦИТАТА
+   ============================================================ */
+.quote{background:var(--white);padding:110px 0;text-align:center}
+.quote blockquote{
+  font-family:var(--font-display);font-weight:500;
+  font-size:clamp(1.7rem,3.4vw,2.7rem);line-height:1.25;
+  max-width:820px;margin:0 auto 22px;
+}
+.quote blockquote em{font-style:italic;color:var(--bronze-dark)}
+.quote p{color:#5a5551;max-width:560px;margin:0 auto}
+.quote .rule{width:70px;margin:0 auto 34px;background:var(--bronze)}
 
-    /* ── TEAM ── */
-    .team { background: var(--beige); padding: clamp(4rem,9vw,7rem) clamp(1.25rem,5vw,2.5rem); }
-    .team__grid {
-      display: grid; grid-template-columns: repeat(2,1fr);
-      gap: 1.25rem; margin-top: 2.5rem;
-    }
-    .team-card {
-      background: var(--white); border-radius: var(--radius); overflow: hidden;
-      display: flex; flex-direction: column;
-    }
-    .team-card__photo, .team-card__photo-placeholder {
-      width: 100%; aspect-ratio: 16/9; object-fit: cover;
-    }
-    .team-card__photo-placeholder {
-      background: var(--beige); display: flex; align-items: center;
-      justify-content: center; font-size: 0.78rem; color: var(--muted);
-    }
-    .team-card__label {
-      padding: 0.85rem 1.1rem; font-size: 0.8rem; font-weight: 500; color: var(--muted);
-    }
+/* ============================================================
+   СЕКЦИИ / КАРТОЧКИ
+   ============================================================ */
+.section{padding:100px 0}
+.section-head{max-width:720px;margin-bottom:56px}
+.section-head .lead{margin-top:18px}
 
-    /* ── HOW ── */
-    .how { background: var(--milk); padding: clamp(4rem,9vw,7rem) clamp(1.25rem,5vw,2.5rem); }
-    .how__steps {
-      display: grid; grid-template-columns: repeat(4,1fr);
-      gap: 1rem; margin-top: 2.5rem; position: relative;
-    }
-    .how__steps::before {
-      content: ''; position: absolute;
-      top: 28px; left: calc(12.5% + 14px); right: calc(12.5% + 14px);
-      height: 1px; background: var(--bronze); opacity: 0.3;
-    }
-    .step-card { text-align: center; padding: 1rem; }
-    .step-card__num {
-      width: 56px; height: 56px; border-radius: 50%;
-      border: 1.5px solid var(--bronze); display: flex; align-items: center;
-      justify-content: center; margin: 0 auto 1.1rem;
-      font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
-      font-weight: 700; color: var(--bronze);
-      background: var(--milk); position: relative; z-index: 1;
-    }
-    .step-card__title { font-size: 0.9rem; font-weight: 700; color: var(--graphite); margin-bottom: 0.4rem; }
-    .step-card__text  { font-size: 0.78rem; font-weight: 300; line-height: 1.65; color: var(--muted); }
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{
+  background:var(--white);border:1px solid var(--line-soft);
+  border-radius:var(--radius);padding:34px 30px;
+  transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  display:flex;flex-direction:column;gap:12px;
+}
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 22px 44px -26px rgba(122,77,43,.35);
+  border-color:var(--line);
+}
+.card .rule{width:36px;background:var(--bronze)}
+.card p{font-size:.95rem;color:#5a5551}
 
-    /* ── REVIEWS ── */
-    .reviews { background: var(--white); padding: clamp(4rem,9vw,7rem) clamp(1.25rem,5vw,2.5rem); }
-    .reviews__grid {
-      display: grid; grid-template-columns: repeat(3,1fr);
-      gap: 1.25rem; margin-top: 2.5rem;
-    }
-    /* Карточка отзыва — скопируйте для добавления нового отзыва */
-    .review-card {
-      background: var(--milk); border-radius: var(--radius);
-      padding: 1.75rem 1.5rem; border-left: 3px solid var(--bronze);
-      display: flex; flex-direction: column; gap: 1rem;
-    }
-    .review-card__text { font-size: 0.88rem; font-weight: 300; line-height: 1.75; color: var(--text); }
-    .review-card__author { display: flex; align-items: center; gap: 0.75rem; }
-    .review-card__avatar {
-      width: 40px; height: 40px; border-radius: 50%;
-      background: var(--beige); flex-shrink: 0; object-fit: cover;
-    }
-    .review-card__name  { font-size: 0.83rem; font-weight: 700; color: var(--graphite); }
-    .review-card__role  { font-size: 0.73rem; font-weight: 400; color: var(--muted); }
+.section-alt{background:var(--beige)}
+.section-alt .card{background:var(--milk)}
 
-    /* ── FINAL CTA ── */
-    .final-cta { background: var(--graphite); padding: clamp(4rem,9vw,6rem) clamp(1.25rem,5vw,2.5rem); text-align: center; }
-    .final-cta__eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bronze); margin-bottom: 1rem; }
-    .final-cta__title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 700; color: var(--white);
-      line-height: 1.2; margin-bottom: 1rem;
-    }
-    .final-cta__text { font-size: 0.92rem; font-weight: 300; color: rgba(255,255,255,0.6); margin-bottom: 2rem; }
+/* ============================================================
+   О КОМПАНИИ
+   ============================================================ */
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:center}
+.about-photo img{
+  border-radius:var(--radius);aspect-ratio:3/4;object-fit:cover;width:100%;
+  box-shadow:0 30px 60px -30px rgba(46,44,43,.35);
+}
+.about-list{margin-top:30px;display:grid;gap:14px}
+.about-list li{display:flex;gap:14px;align-items:flex-start;font-size:.98rem}
+.about-list li::before{
+  content:"";flex:none;width:22px;height:1px;background:var(--bronze);margin-top:13px;
+}
 
-    /* ── FOOTER ── */
-    footer { background: #222120; padding: clamp(2.5rem,5vw,4rem) clamp(1.25rem,5vw,2.5rem); }
-    .footer__inner {
-      display: grid; grid-template-columns: 2fr 1fr 1fr;
-      gap: 2.5rem; max-width: 1120px; margin: 0 auto;
-    }
-    .footer__logo .logo__main { color: var(--white); font-size: 1.1rem; }
-    .footer__logo .logo__sub  { color: rgba(255,255,255,0.35); }
-    .footer__tagline { font-size: 0.82rem; font-weight: 300; color: rgba(255,255,255,0.4); margin-top: 0.75rem; line-height: 1.6; }
-    .footer__col h4 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bronze); margin-bottom: 1rem; }
-    .footer__col p, .footer__col a {
-      font-size: 0.82rem; font-weight: 300; color: rgba(255,255,255,0.5);
-      text-decoration: none; line-height: 1.8; display: block; transition: color 0.2s;
-    }
-    .footer__col a:hover { color: var(--bronze); }
-    .footer__bottom {
-      border-top: 1px solid rgba(255,255,255,0.08); margin-top: 2.5rem;
-      padding-top: 1.25rem; max-width: 1120px; margin-left: auto; margin-right: auto;
-      font-size: 0.73rem; color: rgba(255,255,255,0.25); display: flex;
-      justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
-    }
+/* ============================================================
+   КОМАНДА
+   ============================================================ */
+.team-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:22px}
+.team-grid figure{position:relative;overflow:hidden;border-radius:var(--radius)}
+.team-grid img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.team-grid figure:hover img{transform:scale(1.03)}
+.team-grid figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:22px 24px 18px;
+  background:linear-gradient(transparent,rgba(46,44,43,.72));
+  color:var(--white);font-size:.85rem;letter-spacing:.03em;
+}
 
-    /* ── FADE UP ── */
-    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-    @media (prefers-reduced-motion: reduce) { .fade-up { opacity: 1; transform: none; transition: none; } }
+/* ============================================================
+   ШАГИ
+   ============================================================ */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line-soft)}
+.step{padding:38px 26px 10px;border-left:1px solid var(--line-soft);position:relative}
+.step:first-child{border-left:0}
+.step-num{
+  font-family:var(--font-display);font-size:2.6rem;font-weight:500;
+  color:var(--bronze);line-height:1;margin-bottom:16px;
+}
+.step p{font-size:.93rem;color:#5a5551;margin-top:8px}
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 960px) {
-      .nav { display: none; }
-      .burger { display: flex; }
-      .services__grid { grid-template-columns: repeat(2,1fr); }
-      .trust__grid { grid-template-columns: repeat(2,1fr); }
-      .reviews__grid { grid-template-columns: repeat(2,1fr); }
-      .footer__inner { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 700px) {
-      .hero__inner { grid-template-columns: 1fr; }
-      .hero__photo-wrap { order: -1; justify-content: center; }
-      .about__inner { grid-template-columns: 1fr; }
-      .about__photo-wrap { order: -1; }
-      .how__steps { grid-template-columns: repeat(2,1fr); }
-      .how__steps::before { display: none; }
-      .services__grid { grid-template-columns: 1fr; }
-      .trust__grid { grid-template-columns: 1fr; }
-      .team__grid { grid-template-columns: 1fr; }
-      .reviews__grid { grid-template-columns: 1fr; }
-      .footer__inner { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 480px) {
-      .about__perks { grid-template-columns: 1fr; }
-      .how__steps { grid-template-columns: 1fr; }
-    }
-  </style>
+/* ============================================================
+   ОТЗЫВЫ (место подготовлено — карточки легко заменить)
+   ============================================================ */
+.review{gap:16px}
+.review-text{font-size:.97rem;font-style:italic;color:#5a5551;flex:1}
+.review-author{display:flex;align-items:center;gap:14px;margin-top:6px}
+.review-avatar{
+  width:44px;height:44px;border-radius:50%;background:var(--beige);
+  border:1px solid var(--line-soft);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-weight:600;color:var(--bronze-dark);flex:none;
+}
+.review-name{font-weight:600;font-size:.93rem;line-height:1.3}
+.review-role{font-size:.8rem;color:#8a837d}
+
+/* ============================================================
+   ФИНАЛЬНЫЙ ПРИЗЫВ
+   ============================================================ */
+.cta{background:var(--graphite);color:var(--milk);padding:110px 0;text-align:center}
+.cta h2{color:var(--white)}
+.cta p{color:rgba(248,245,241,.75);max-width:560px;margin:22px auto 38px}
+.cta .eyebrow{color:var(--bronze)}
+.cta .eyebrow::before{background:var(--bronze)}
+
+/* ============================================================
+   ПОДВАЛ
+   ============================================================ */
+.footer{background:var(--graphite);color:rgba(248,245,241,.7);padding:0 0 46px;font-size:.9rem}
+.footer .rule{background:linear-gradient(90deg,transparent,var(--line),transparent);margin-bottom:46px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.footer h4{
+  font-family:var(--font-body);font-weight:600;font-size:.8rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--bronze);margin-bottom:16px;
+}
+.footer a:hover{color:var(--white)}
+.footer-brand .logo-name{color:var(--white)}
+.footer-brand p{margin-top:14px;max-width:300px}
+.footer li{margin-bottom:8px}
+.footer-bottom{margin-top:50px;padding-top:22px;border-top:1px solid rgba(248,245,241,.12);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem;color:rgba(248,245,241,.45)}
+
+/* ============================================================
+   АДАПТИВ
+   ============================================================ */
+@media (max-width:1000px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .step:nth-child(3){border-left:0}
+  .step{padding-bottom:34px}
+  .hero-grid,.about-grid{gap:44px}
+}
+@media (max-width:820px){
+  .nav{display:none}
+  .header .btn-header{display:none}
+  .burger{display:block}
+  .hero{padding-top:120px}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-photo{order:-1;max-width:440px}      /* фото перед текстом на мобильных */
+  .about-grid{grid-template-columns:1fr}
+  .about-photo{max-width:440px}
+  .team-grid{grid-template-columns:1fr}
+  .section{padding:74px 0}
+}
+@media (max-width:560px){
+  .cards{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .step{border-left:0;border-top:1px solid var(--line-soft);padding:28px 4px}
+  .steps{border-top:0}
+  .footer-grid{grid-template-columns:1fr}
+  .hero-actions .btn{width:100%}
+}
+</style>
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- ============================================================
+     ШАПКА
+     ============================================================ -->
 <header class="header" id="header">
-  <div class="container">
-    <div class="header__inner">
-      <a href="#" class="logo">
-        <span class="logo__main"><span>ФК</span> / Фирма Консалтинг</span>
-        <span class="logo__sub">Наводим порядок в бизнесе</span>
-      </a>
-      <nav class="nav">
-        <a href="#services">Услуги</a>
-        <a href="#about">О компании</a>
-        <a href="#team">Команда</a>
-        <a href="#how">Как начать</a>
-        <a href="#contacts">Контакты</a>
-      </nav>
-      <a class="btn btn--bronze" href="#" id="cta-header">Получить консультацию</a>
-      <button class="burger" id="burger" aria-label="Меню">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+  <div class="container header-inner">
+    <a href="#top" class="logo" aria-label="Фирма Консалтинг — на главную">
+      <span>
+        <span class="logo-name">Фирма Консалтинг</span><br>
+        <span class="logo-tag">Наводим порядок в бизнесе</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Основное меню">
+      <a href="#services">Услуги</a>
+      <a href="#about">О компании</a>
+      <a href="#team">Команда</a>
+      <a href="#steps">Как начать</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn btn-primary btn-header js-wa" href="#">Получить консультацию</a>
+    <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
-<nav class="mobile-nav" id="mobile-nav">
-  <a href="#services" onclick="closeMobileNav()">Услуги</a>
-  <a href="#about" onclick="closeMobileNav()">О компании</a>
-  <a href="#team" onclick="closeMobileNav()">Команда</a>
-  <a href="#how" onclick="closeMobileNav()">Как начать</a>
-  <a href="#contacts" onclick="closeMobileNav()">Контакты</a>
-  <a class="btn btn--bronze" href="#" id="cta-mobile" style="justify-content:center">Получить консультацию</a>
-</nav>
 
-<!-- HERO -->
-<section class="hero" id="hero">
-  <div class="container">
-    <div class="hero__inner">
-      <div class="fade-up">
-        <p class="hero__eyebrow">24 года рядом с бизнесом Казахстана</p>
-        <h1 class="hero__title">Наводим порядок<br>в бизнесе</h1>
-        <p class="hero__text">Бухгалтерское, налоговое и кадровое сопровождение для ИП и ТОО. Не один частный бухгалтер, а команда специалистов с распределением задач по направлениям.</p>
-        <div class="hero__btns">
-          <a class="btn btn--bronze" href="#" id="cta-hero">Написать в WhatsApp</a>
-          <a class="btn btn--outline" href="#services">Посмотреть услуги</a>
-        </div>
-        <div class="hero__facts">
-          <div>
-            <div class="hero__fact-num">с 2002</div>
-            <div class="hero__fact-lbl">года на рынке</div>
-          </div>
-          <div>
-            <div class="hero__fact-num">ИП и ТОО</div>
-            <div class="hero__fact-lbl">любой масштаб</div>
-          </div>
-          <div>
-            <div class="hero__fact-num">Разовые</div>
-            <div class="hero__fact-lbl">и сопровождение</div>
-          </div>
-        </div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services">Услуги</a>
+  <a href="#about">О компании</a>
+  <a href="#team">Команда</a>
+  <a href="#steps">Как начать</a>
+  <a href="#contacts">Контакты</a>
+  <a class="btn btn-primary js-wa" href="#">Получить консультацию в WhatsApp</a>
+</div>
+
+<main id="top">
+
+<!-- ============================================================
+     ПЕРВЫЙ ЭКРАН
+     ============================================================ -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow reveal">24 года рядом с бизнесом Казахстана</p>
+      <h1 class="reveal d1">Наводим <em>порядок</em> в&nbsp;бизнесе</h1>
+      <p class="lead reveal d2">Бухгалтерское, налоговое и кадровое сопровождение для предпринимателей и компаний Казахстана. Берём на себя сложные процессы, объясняем понятным языком и помогаем спокойно развивать бизнес.</p>
+      <div class="hero-actions reveal d2">
+        <a class="btn btn-primary js-wa" href="#">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.1 1.3Z"/></svg>
+          Получить консультацию в WhatsApp
+        </a>
+        <a class="btn btn-ghost" href="#services">Посмотреть услуги</a>
       </div>
-      <div class="hero__photo-wrap fade-up">
-        <img src="assets/founder-walking.jpg" alt="Руководитель Фирмы Консалтинг" class="hero__photo" />
-        <div class="hero__photo-frame"></div>
-      </div>
+      <ul class="hero-facts reveal d3">
+        <li>С 2002 года</li>
+        <li>ИП и ТОО</li>
+        <li>Разовые услуги и постоянное сопровождение</li>
+      </ul>
+    </div>
+    <div class="hero-photo frame reveal d1">
+      <img src="assets/founder-walking.jpg" alt="Основатель Фирмы Консалтинг в голубом костюме идёт по городу с кофе в руках">
     </div>
   </div>
 </section>
 
-<!-- QUOTE -->
+<!-- ============================================================
+     ЭМОЦИОНАЛЬНЫЙ БЛОК
+     ============================================================ -->
 <section class="quote">
   <div class="container">
-    <p class="quote__text fade-up">«Бухгалтерия должна быть <em>точной</em>.<br>Отношения — <em>человеческими</em>.»</p>
+    <hr class="rule reveal">
+    <blockquote class="reveal d1">Бухгалтерия должна быть точной.<br><em>Отношения — человеческими.</em></blockquote>
+    <p class="reveal d2">За каждым бизнесом стоит человек, его планы, ответственность и ежедневные решения.</p>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="services" id="services">
+<!-- ============================================================
+     УСЛУГИ
+     ============================================================ -->
+<section class="section" id="services">
   <div class="container">
-    <p class="section-label fade-up">Услуги</p>
-    <h2 class="section-title fade-up">Что мы делаем</h2>
-    <div class="services__grid">
-      <div class="service-card fade-up">
-        <div class="service-card__icon">📊</div>
-        <h3 class="service-card__title">Бухгалтерское сопровождение</h3>
-        <p class="service-card__text">Ведение учёта для ИП, ТОО и крупных предприятий. Сдача отчётности, расчёт налогов, полное бухгалтерское обслуживание.</p>
-      </div>
-      <div class="service-card fade-up">
-        <div class="service-card__icon">⚖️</div>
-        <h3 class="service-card__title">Налоговое сопровождение</h3>
-        <p class="service-card__text">Налоговое планирование, оптимизация, консультации, представление интересов при проверках.</p>
-      </div>
-      <div class="service-card fade-up">
-        <div class="service-card__icon">🔄</div>
-        <h3 class="service-card__title">Восстановление учёта</h3>
-        <p class="service-card__text">Восстанавливаем бухгалтерский учёт за любой период. Разбираем накопившиеся ошибки и наводим порядок.</p>
-      </div>
-      <div class="service-card fade-up">
-        <div class="service-card__icon">🏢</div>
-        <h3 class="service-card__title">Открытие ИП и ТОО</h3>
-        <p class="service-card__text">Регистрация бизнеса под ключ, выбор оптимального режима налогообложения, сопровождение на старте.</p>
-      </div>
-      <div class="service-card fade-up">
-        <div class="service-card__icon">🖥️</div>
-        <h3 class="service-card__title">ЭСФ, СНТ, Виртуальный склад</h3>
-        <p class="service-card__text">Работа в информационных системах КГД: электронные счета-фактуры, сопроводительные накладные, складской учёт.</p>
-      </div>
-      <div class="service-card fade-up">
-        <div class="service-card__icon">👥</div>
-        <h3 class="service-card__title">Кадровое сопровождение</h3>
-        <p class="service-card__text">Трудовые договоры, расчёт зарплат и отпусков, кадровое делопроизводство, отчётность в ЕНПФ и СО.</p>
-      </div>
+    <div class="section-head">
+      <p class="eyebrow reveal">Услуги</p>
+      <h2 class="reveal d1">Комплексная поддержка бизнеса</h2>
+      <p class="lead reveal d2">Не предлагаем одинаковые решения всем. Сначала разбираемся в вашей ситуации, затем определяем подходящий формат работы.</p>
+    </div>
+    <div class="cards">
+      <article class="card reveal">
+        <hr class="rule"><h3>Бухгалтерское сопровождение</h3>
+        <p>Полное ведение бухгалтерского и налогового учёта, контроль документов и отчётности.</p>
+      </article>
+      <article class="card reveal d1">
+        <hr class="rule"><h3>Налоговое сопровождение</h3>
+        <p>Помогаем соблюдать требования законодательства и своевременно видеть возможные риски.</p>
+      </article>
+      <article class="card reveal d2">
+        <hr class="rule"><h3>Восстановление учёта</h3>
+        <p>Разбираемся с накопленными ошибками, документами и приводим учёт в порядок.</p>
+      </article>
+      <article class="card reveal">
+        <hr class="rule"><h3>Открытие ИП и ТОО</h3>
+        <p>Помогаем выбрать форму бизнеса, налоговый режим и пройти необходимые этапы регистрации.</p>
+      </article>
+      <article class="card reveal d1">
+        <hr class="rule"><h3>ЭСФ, СНТ и Виртуальный склад</h3>
+        <p>Сопровождаем электронные процессы и сложные категории учёта.</p>
+      </article>
+      <article class="card reveal d2">
+        <hr class="rule"><h3>Кадровое сопровождение</h3>
+        <p>Приём, перевод и увольнение сотрудников, кадровые документы и работа с государственными порталами.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="container">
-    <div class="about__inner">
-      <div class="fade-up">
-        <p class="section-label">О компании</p>
-        <h2 class="section-title">24 года опыта —<br>ваш надёжный партнёр</h2>
-        <p class="section-text">Фирма Консалтинг работает с 2002 года. За это время мы прошли путь от небольшой бухгалтерской компании до команды специалистов с чётким распределением задач по направлениям. Мы сопровождаем бизнес на всех этапах: от регистрации ИП и ТОО до сложного учёта для крупных предприятий.</p>
-        <div class="about__perks">
-          <div class="perk">
-            <div class="perk__title">Команда, не один бухгалтер</div>
-            <p class="perk__text">Каждое направление ведёт профильный специалист — никакого «всё один».</p>
-          </div>
-          <div class="perk">
-            <div class="perk__title">Любой масштаб бизнеса</div>
-            <p class="perk__text">Работаем с ИП, ТОО, торговлей, производством, импортом и экспортом.</p>
-          </div>
-          <div class="perk">
-            <div class="perk__title">Понятное общение</div>
-            <p class="perk__text">Объясняем без бухгалтерского жаргона. Вы всегда понимаете, что происходит.</p>
-          </div>
-          <div class="perk">
-            <div class="perk__title">Человеческое отношение</div>
-            <p class="perk__text">Не просто исполнители — партнёры, которым не всё равно.</p>
-          </div>
-        </div>
-      </div>
-      <div class="about__photo-wrap fade-up">
-        <img src="assets/founder-portrait.jpg" alt="Портрет основателя Фирмы Консалтинг" class="about__photo" />
-        <div class="about__photo-frame"></div>
-      </div>
+<!-- ============================================================
+     О КОМПАНИИ
+     ============================================================ -->
+<section class="section section-alt" id="about">
+  <div class="container about-grid">
+    <div class="about-photo frame reveal">
+      <img src="assets/founder-portrait.jpg" alt="Портрет основателя Фирмы Консалтинг в голубом костюме у тёмного стеклянного фасада">
     </div>
-  </div>
-</section>
-
-<!-- TRUST -->
-<section class="trust">
-  <div class="container">
-    <p class="section-label fade-up">Доверие</p>
-    <h2 class="section-title fade-up">Почему нам доверяют</h2>
-    <div class="trust__grid">
-      <div class="trust-card fade-up">
-        <div class="trust-card__num">01</div>
-        <div class="trust-card__title">Системный подход</div>
-        <p class="trust-card__text">Учёт выстраивается как система, а не латается по ситуации.</p>
-      </div>
-      <div class="trust-card fade-up">
-        <div class="trust-card__num">02</div>
-        <div class="trust-card__title">Разный масштаб</div>
-        <p class="trust-card__text">Одинаково тщательно работаем с начинающим ИП и крупным предприятием.</p>
-      </div>
-      <div class="trust-card fade-up">
-        <div class="trust-card__num">03</div>
-        <div class="trust-card__title">Понятное общение</div>
-        <p class="trust-card__text">Никакого бухгалтерского жаргона. Отвечаем на вопросы человеческим языком.</p>
-      </div>
-      <div class="trust-card fade-up">
-        <div class="trust-card__num">04</div>
-        <div class="trust-card__title">24 года опыта</div>
-        <p class="trust-card__text">С 2002 года мы видели все изменения в законодательстве Казахстана — и адаптировались раньше других.</p>
-      </div>
-      <div class="trust-card fade-up">
-        <div class="trust-card__num">05</div>
-        <div class="trust-card__title">Команда специалистов</div>
-        <p class="trust-card__text">Каждый занимается своим направлением. Ваши задачи не теряются и не откладываются.</p>
-      </div>
-      <div class="trust-card fade-up">
-        <div class="trust-card__num">06</div>
-        <div class="trust-card__title">Человеческое отношение</div>
-        <p class="trust-card__text">Мы болеем за ваш бизнес. Не просто сдаём отчёты — думаем о вашем спокойствии.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TEAM -->
-<section class="team" id="team">
-  <div class="container">
-    <p class="section-label fade-up">Команда</p>
-    <h2 class="section-title fade-up">Люди, которые работают с вашим бизнесом</h2>
-    <div class="team__grid">
-      <div class="team-card fade-up">
-        <img src="assets/team-office.jpg" alt="Команда Фирмы Консалтинг в офисе" class="team-card__photo" />
-        <div class="team-card__label">Команда Фирмы Консалтинг</div>
-      </div>
-      <div class="team-card fade-up">
-        <img src="assets/team-celebration.jpg" alt="Жизнь компании Фирма Консалтинг" class="team-card__photo" />
-        <div class="team-card__label">Жизнь компании</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW -->
-<section class="how" id="how">
-  <div class="container">
-    <p class="section-label fade-up">Как начать</p>
-    <h2 class="section-title fade-up">Как начинается сотрудничество</h2>
-    <div class="how__steps">
-      <div class="step-card fade-up">
-        <div class="step-card__num">1</div>
-        <div class="step-card__title">Напишите нам</div>
-        <p class="step-card__text">В WhatsApp или по телефону. Расскажите, чем занимается ваш бизнес.</p>
-      </div>
-      <div class="step-card fade-up">
-        <div class="step-card__num">2</div>
-        <div class="step-card__title">Знакомство</div>
-        <p class="step-card__text">Узнаём друг друга. Рассказываем о том, как работаем.</p>
-      </div>
-      <div class="step-card fade-up">
-        <div class="step-card__num">3</div>
-        <div class="step-card__title">Разбор ситуации</div>
-        <p class="step-card__text">Изучаем текущее состояние учёта, задачи и сложности.</p>
-      </div>
-      <div class="step-card fade-up">
-        <div class="step-card__num">4</div>
-        <div class="step-card__title">Наводим порядок</div>
-        <p class="step-card__text">Приступаем к работе. Вы занимаетесь бизнесом — мы берём учёт на себя.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section class="reviews" id="reviews">
-  <div class="container">
-    <p class="section-label fade-up">Отзывы</p>
-    <h2 class="section-title fade-up">Что говорят клиенты</h2>
-    <div class="reviews__grid">
-
-      <!-- ЗАГЛУШКА — замените содержимое на реальный отзыв -->
-      <div class="review-card fade-up">
-        <p class="review-card__text">«Здесь будет реальный отзыв клиента. Замените этот текст на слова вашего клиента — чем конкретнее, тем лучше.»</p>
-        <div class="review-card__author">
-          <!-- <img src="assets/review-1.jpg" alt="Имя клиента" class="review-card__avatar" /> -->
-          <div class="review-card__avatar"></div>
-          <div>
-            <div class="review-card__name">Имя клиента</div>
-            <div class="review-card__role">Сфера / компания</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ЗАГЛУШКА 2 -->
-      <div class="review-card fade-up">
-        <p class="review-card__text">«Второй отзыв. Скопируйте эту карточку целиком и замените текст, имя и фото.»</p>
-        <div class="review-card__author">
-          <div class="review-card__avatar"></div>
-          <div>
-            <div class="review-card__name">Имя клиента</div>
-            <div class="review-card__role">Сфера / компания</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ЗАГЛУШКА 3 -->
-      <div class="review-card fade-up">
-        <p class="review-card__text">«Третий отзыв. Когда будет реальный контент — просто вставьте его сюда.»</p>
-        <div class="review-card__author">
-          <div class="review-card__avatar"></div>
-          <div>
-            <div class="review-card__name">Имя клиента</div>
-            <div class="review-card__role">Сфера / компания</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <div class="container">
-    <p class="final-cta__eyebrow fade-up">Готовы начать?</p>
-    <h2 class="final-cta__title fade-up">Напишите нам — это бесплатно</h2>
-    <p class="final-cta__text fade-up">Расскажите о своём бизнесе. Посмотрим, чем можем помочь.</p>
-    <a class="btn btn--white fade-up" href="#" id="cta-final">Написать в WhatsApp</a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer id="contacts">
-  <div class="footer__inner">
     <div>
-      <a href="#" class="logo footer__logo">
-        <span class="logo__main"><span style="color:var(--bronze)">ФК</span> / Фирма Консалтинг</span>
-        <span class="logo__sub">Наводим порядок в бизнесе</span>
-      </a>
-      <p class="footer__tagline">Бухгалтерское, налоговое и кадровое<br>сопровождение с 2002 года.</p>
-    </div>
-    <div class="footer__col">
-      <h4>Контакты</h4>
-      <a href="tel:+77055017651">+7 705 501 7651</a>
-      <a href="https://instagram.com/consulting_uka" target="_blank" rel="noopener">@consulting_uka</a>
-      <a href="https://2gis.kz/ustkam/geo/70000001021872400" target="_blank" rel="noopener">Найти в 2ГИС</a>
-    </div>
-    <div class="footer__col">
-      <h4>Адрес и режим</h4>
-      <p>ул. Жақсылық Үшкемпіров, 70/1</p>
-      <p>Пн–Пт 8:30–17:30</p>
-      <p>Обед 12:30–13:30</p>
+      <p class="eyebrow reveal">О компании</p>
+      <h2 class="reveal d1">24 года опыта, ответственности и человеческого отношения</h2>
+      <p class="lead reveal d2" style="margin-top:20px">Фирма Консалтинг прошла путь от небольшой команды до полноценной консалтинговой компании со специалистами по разным направлениям.</p>
+      <p class="lead reveal d2" style="margin-top:14px">Мы не просто сдаём отчётность. Наша задача — понять ситуацию клиента, объяснить возможные решения и помочь выстроить порядок в документах, цифрах и процессах.</p>
+      <ul class="about-list reveal d3">
+        <li>Объясняем сложное простым языком.</li>
+        <li>Предупреждаем о возможных рисках.</li>
+        <li>Предлагаем решения, а не только фиксируем проблемы.</li>
+        <li>Остаёмся на связи и сопровождаем бизнес.</li>
+      </ul>
     </div>
   </div>
-  <div class="footer__bottom">
-    <span>© 2024 Фирма Консалтинг</span>
-    <span>Все данные защищены</span>
+</section>
+
+<!-- ============================================================
+     ПОЧЕМУ НАМ ДОВЕРЯЮТ
+     ============================================================ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow reveal">Почему нам доверяют</p>
+      <h2 class="reveal d1">Порядок держится на системе — и на людях</h2>
+    </div>
+    <div class="cards">
+      <article class="card reveal"><hr class="rule"><h3>Системный подход</h3><p>Распределение задач и ответственности между профильными специалистами.</p></article>
+      <article class="card reveal d1"><hr class="rule"><h3>Разный масштаб</h3><p>Работаем с начинающими предпринимателями, ИП, ТОО и крупными предприятиями.</p></article>
+      <article class="card reveal d2"><hr class="rule"><h3>Понятное общение</h3><p>Клиент понимает, что происходит, почему это важно и какие действия необходимо предпринять.</p></article>
+      <article class="card reveal"><hr class="rule"><h3>24 года опыта</h3><p>Компания работает на рынке Казахстана с 2002 года.</p></article>
+      <article class="card reveal d1"><hr class="rule"><h3>Команда специалистов</h3><p>Клиент получает не одного бухгалтера, а поддержку команды.</p></article>
+      <article class="card reveal d2"><hr class="rule"><h3>Человеческое отношение</h3><p>За каждой задачей мы видим человека и его бизнес.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     КОМАНДА
+     ============================================================ -->
+<section class="section section-alt" id="team">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow reveal">Команда</p>
+      <h2 class="reveal d1">Люди, которым можно доверить важную часть бизнеса</h2>
+      <p class="lead reveal d2">За каждым направлением стоят реальные специалисты. Мы объединяем опыт, знания и внимательное отношение к клиенту.</p>
+    </div>
+    <div class="team-grid">
+      <figure class="reveal">
+        <img src="assets/team-office.jpg" alt="Команда Фирмы Консалтинг в офисе">
+        <figcaption>Команда Фирмы Консалтинг</figcaption>
+      </figure>
+      <figure class="reveal d1">
+        <img src="assets/team-celebration.jpg" alt="Коллектив Фирмы Консалтинг на праздновании с картиной">
+        <figcaption>Жизнь компании</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     КАК НАЧИНАЕТСЯ СОТРУДНИЧЕСТВО
+     ============================================================ -->
+<section class="section" id="steps">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow reveal">Как начать</p>
+      <h2 class="reveal d1">Первый шаг — просто рассказать о своей ситуации</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="step-num">1</div><h3>Напишите нам</h3><p>Нажмите кнопку WhatsApp и кратко опишите свой вопрос.</p></div>
+      <div class="step reveal d1"><div class="step-num">2</div><h3>Мы знакомимся</h3><p>Уточняем форму бизнеса, налоговый режим и текущие задачи.</p></div>
+      <div class="step reveal d2"><div class="step-num">3</div><h3>Разбираем ситуацию</h3><p>Объясняем возможные решения и определяем необходимый объём работы.</p></div>
+      <div class="step reveal d3"><div class="step-num">4</div><h3>Наводим порядок</h3><p>Выбираем разовую услугу или постоянное сопровождение и начинаем работу.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ОТЗЫВЫ
+     Блок подготовлен под будущие отзывы: скопируйте карточку
+     <article class="card review"> и замените текст, имя и сферу.
+     В .review-avatar можно поставить <img> с фото клиента.
+     ============================================================ -->
+<section class="section section-alt" id="reviews">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow reveal">Отзывы</p>
+      <h2 class="reveal d1">Что говорят наши клиенты</h2>
+    </div>
+    <div class="cards">
+      <!-- ШАБЛОН КАРТОЧКИ ОТЗЫВА — замените содержимое на реальный отзыв -->
+      <article class="card review reveal">
+        <hr class="rule">
+        <p class="review-text">Здесь будет отзыв вашего клиента — о том, как команда навела порядок в учёте и сняла тревогу перед отчётностью.</p>
+        <div class="review-author">
+          <span class="review-avatar">А</span>
+          <span><span class="review-name">Имя клиента</span><br><span class="review-role">Компания или сфера деятельности</span></span>
+        </div>
+      </article>
+      <article class="card review reveal d1">
+        <hr class="rule">
+        <p class="review-text">Здесь будет отзыв вашего клиента — о понятном общении и спокойствии, которое даёт постоянное сопровождение.</p>
+        <div class="review-author">
+          <span class="review-avatar">Б</span>
+          <span><span class="review-name">Имя клиента</span><br><span class="review-role">Компания или сфера деятельности</span></span>
+        </div>
+      </article>
+      <article class="card review reveal d2">
+        <hr class="rule">
+        <p class="review-text">Здесь будет отзыв вашего клиента — о восстановлении учёта, открытии ТОО или помощи с налоговым режимом.</p>
+        <div class="review-author">
+          <span class="review-avatar">В</span>
+          <span><span class="review-name">Имя клиента</span><br><span class="review-role">Компания или сфера деятельности</span></span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ФИНАЛЬНЫЙ ПРИЗЫВ
+     ============================================================ -->
+<section class="cta" id="contacts">
+  <div class="container">
+    <p class="eyebrow reveal" style="justify-content:center;display:flex">Свяжитесь с нами</p>
+    <h2 class="reveal d1">Расскажите нам о своей ситуации</h2>
+    <p class="reveal d2">Вам не обязательно заранее знать, какая услуга нужна. Мы зададим уточняющие вопросы и подскажем подходящий формат работы.</p>
+    <a class="btn btn-primary js-wa reveal d3" href="#">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.1 1.3Z"/></svg>
+      Написать в WhatsApp
+    </a>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     ПОДВАЛ
+     ============================================================ -->
+<footer class="footer">
+  <div class="container" style="padding-top:46px">
+    <hr class="rule">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <span><span class="logo-name">Фирма Консалтинг</span></span>
+        </div>
+        <p>Бухгалтерское и налоговое сопровождение бизнеса в Казахстане. Наводим порядок в бизнесе с 2002 года.</p>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <ul>
+          <li><a href="tel:+77055017651">+7 705 501 7651</a></li>
+          <li><a href="#" class="js-wa">WhatsApp: +7 705 501 7651</a></li>
+          <li><a href="https://www.instagram.com/consulting_uka" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Офис</h4>
+        <ul>
+          <li>ул. Жақсылық Үшкемпіров, 70/1</li>
+          <li>Пн–Пт: 8:30–17:30</li>
+          <li>Обед: 12:30–13:30</li>
+          <li><a href="https://2gis.kz/ustkam/geo/70000001021872400" target="_blank" rel="noopener">Открыть в 2ГИС</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Фирма Консалтинг</span>
+      <span>Республика Казахстан</span>
+    </div>
   </div>
 </footer>
 
 <script>
-  // ── WHATSAPP ──
-  const WHATSAPP_NUMBER  = "77055017651";
-  const WHATSAPP_MESSAGE = "Здравствуйте! Я перешёл(а) с сайта Фирмы Консалтинг и хочу получить консультацию по своему бизнесу.";
-  const WA_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+/* ============================================================
+   НАСТРОЙКИ — здесь легко заменить номер WhatsApp
+   ============================================================ */
+const WHATSAPP_NUMBER = "77055017651"; // формат: код страны + номер, без "+" и пробелов
+const WHATSAPP_MESSAGE = "Здравствуйте! Я перешёл(а) с сайта Фирмы Консалтинг и хочу получить консультацию по своему бизнесу.";
 
-  ['cta-header','cta-hero','cta-mobile','cta-final'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.href = WA_LINK;
+// Все кнопки с классом .js-wa ведут в WhatsApp с готовым сообщением
+const waLink = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(WHATSAPP_MESSAGE);
+document.querySelectorAll(".js-wa").forEach(el => {
+  el.href = waLink;
+  el.target = "_blank";
+  el.rel = "noopener";
+});
+
+/* ---------- шапка при прокрутке ---------- */
+const header = document.getElementById("header");
+const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 24);
+onScroll();
+window.addEventListener("scroll", onScroll, { passive: true });
+
+/* ---------- мобильное меню ---------- */
+const burger = document.getElementById("burger");
+const mobileMenu = document.getElementById("mobileMenu");
+const toggleMenu = (open) => {
+  const isOpen = open ?? !mobileMenu.classList.contains("is-open");
+  mobileMenu.classList.toggle("is-open", isOpen);
+  document.body.classList.toggle("menu-open", isOpen);
+  burger.setAttribute("aria-expanded", isOpen);
+  burger.setAttribute("aria-label", isOpen ? "Закрыть меню" : "Открыть меню");
+};
+burger.addEventListener("click", () => toggleMenu());
+mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => toggleMenu(false)));
+
+/* ---------- плавное появление блоков ---------- */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add("is-visible");
+      observer.unobserve(e.target);
+    }
   });
+}, { threshold: 0.12 });
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-  // ── HEADER SCROLL ──
-  const header = document.getElementById('header');
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 20);
-  }, { passive: true });
-
-  // ── BURGER ──
-  const burger = document.getElementById('burger');
-  const mobileNav = document.getElementById('mobile-nav');
-  burger.addEventListener('click', () => mobileNav.classList.toggle('open'));
-  function closeMobileNav() { mobileNav.classList.remove('open'); }
-
-  // ── FADE UP ──
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+/* ---------- текущий год в подвале ---------- */
+document.getElementById("year").textContent = new Date().getFullYear();
 </script>
-
 </body>
 </html>
